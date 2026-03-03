@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador de Listas</title>
+    <title>Lista de Convidados</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2 id="titulo-tela">Pronto para começar</h2>
-        
-        <div id="display" class="tela">
-            Clique no botão abaixo para processar as listas e exibir a primeira tela.
+        <h1>Gerenciador de Convidados</h1>
+
+        <div class="card">
+            <h2>Lista em Maiúsculas</h2>
+            <ul id="lista-maiusculas"></ul>
         </div>
-        
-        <button id="btn-avancar" onclick="avancarTela()">Avançar</button>
+
+        <div class="card">
+            <h2>Estatísticas</h2>
+            <p>Nomes que começam com a letra "A": <span id="contagem-a" class="destaque"></span></p>
+        </div>
+
+        <div class="card">
+            <h2>Nomes com mais de 5 letras</h2>
+            <ul id="lista-mais-cinco"></ul>
+        </div>
     </div>
 
     <script src="script.js"></script>
