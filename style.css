@@ -1,53 +1,76 @@
+/* Reset básico e Fonte */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Fundo da página com gradiente moderno */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
+    color: #333;
 }
 
+/* Caixa branca principal */
 .container {
+    background: #ffffff;
+    width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    padding: 30px;
 }
 
 h1 {
     text-align: center;
-    color: #2c3e50;
+    color: #4a4a4a;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
+/* Estilo dos Botões */
 .botoes-container {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
     gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Para adaptar no celular */
 }
 
 .btn {
     flex: 1;
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
+    min-width: 100px;
+    padding: 12px 15px;
+    background: #f0f0f0;
+    color: #555;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #2980b9;
+    background: #e0e0e0;
+    transform: translateY(-2px); /* Efeito de flutuar */
 }
 
+/* Classe para o botão que estiver selecionado */
+.btn.ativo {
+    background: #667eea;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Animação suave para as abas aparecendo */
 .card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: surgir 0.4s ease-in-out;
 }
 
 .oculta {
@@ -56,22 +79,48 @@ h1 {
 
 h2 {
     font-size: 1.2rem;
-    color: #34495e;
-    border-bottom: 2px solid #ecf0f1;
-    padding-bottom: 5px;
+    color: #667eea;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
 }
 
+/* Estilo das Listas */
 ul {
-    list-style-type: square;
-    padding-left: 20px;
+    list-style: none; /* Tira as bolinhas feias do HTML padrão */
 }
 
 li {
-    margin-bottom: 5px;
+    background: #f9f9ff;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    font-weight: 400;
+    transition: transform 0.2s, background 0.2s;
+}
+
+/* Efeito ao passar o mouse em cima do nome */
+li:hover {
+    transform: translateX(8px);
+    background: #f0f0ff;
+}
+
+/* Destaque para o número de contagem */
+p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #666;
 }
 
 .destaque {
-    font-weight: bold;
-    color: #e74c3c;
-    font-size: 1.2rem;
+    color: #ff6b6b;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Configuração da animação */
+@keyframes surgir {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
