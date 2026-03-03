@@ -29,4 +29,44 @@ for (let i = 0; i < convidados.length; i++) {
     if (nome.length === 5) {
         let li3 = document.createElement('li');
         li3.textContent = nome;
-        ul
+        ulLista3.appendChild(li3);
+    }
+}
+
+// Atualiza o HTML com o total da contagem da letra "A"
+spanContagem.textContent = contadorA;
+
+// ==========================================
+// LÓGICA DA LISTA 2 (ORDEM ALFABÉTICA A-Z)
+// ==========================================
+// Cria uma cópia da lista e usa o sort() para organizar de A a Z
+const convidadosAZ = [...convidados].sort();
+
+for (let i = 0; i < convidadosAZ.length; i++) {
+    let li2 = document.createElement('li');
+    li2.textContent = convidadosAZ[i];
+    ulLista2.appendChild(li2);
+}
+
+// ==========================================
+// LÓGICA DOS BOTÕES
+// ==========================================
+function exibirSecao(idSecao) {
+    document.getElementById('secao-lista1').classList.add('oculta');
+    document.getElementById('secao-lista2').classList.add('oculta');
+    document.getElementById('secao-lista3').classList.add('oculta');
+    
+    document.getElementById(idSecao).classList.remove('oculta');
+}
+
+document.getElementById('btn-lista1').addEventListener('click', function() {
+    exibirSecao('secao-lista1');
+});
+
+document.getElementById('btn-lista2').addEventListener('click', function() {
+    exibirSecao('secao-lista2');
+});
+
+document.getElementById('btn-lista3').addEventListener('click', function() {
+    exibirSecao('secao-lista3');
+});
