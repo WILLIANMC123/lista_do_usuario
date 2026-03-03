@@ -1,5 +1,5 @@
-// A nossa lista principal (desordenada de propósito para testar)
-const convidados = ["Ricardo", "Ana", "Carlos", "Amanda", "Pedro", "Aline", "Bia", "Lucas", "Tiago"];
+// A nossa lista principal (agora com o .sort() para organizar de A a Z desde o início!)
+const convidados = ["Ricardo", "Ana", "Carlos", "Amanda", "Pedro", "Aline", "Bia", "Lucas", "Tiago"].sort();
 
 // Capturando os elementos HTML
 const ulLista1 = document.getElementById('ul-lista1');
@@ -10,7 +10,7 @@ const spanContagem = document.getElementById('contagem-a');
 let contadorA = 0;
 
 // ==========================================
-// LÓGICA DAS LISTAS 1 e 3 + CONTAGEM DE "A"
+// LOOP ÚNICO PARA PREENCHER TUDO
 // ==========================================
 for (let i = 0; i < convidados.length; i++) {
     let nome = convidados[i];
@@ -19,6 +19,11 @@ for (let i = 0; i < convidados.length; i++) {
     let li1 = document.createElement('li');
     li1.textContent = nome.toUpperCase();
     ulLista1.appendChild(li1);
+
+    // Regra 2: Imprimir na Lista 2 o nome normal
+    let li2 = document.createElement('li');
+    li2.textContent = nome;
+    ulLista2.appendChild(li2);
 
     // Contagem: Verifica se começa com "A"
     if (nome.charAt(0).toUpperCase() === 'A') {
@@ -33,20 +38,8 @@ for (let i = 0; i < convidados.length; i++) {
     }
 }
 
-// Atualiza o HTML com o total da contagem da letra "A"
+// Atualiza o HTML com o total da contagem da letra "A" na segunda aba
 spanContagem.textContent = contadorA;
-
-// ==========================================
-// LÓGICA DA LISTA 2 (ORDEM ALFABÉTICA A-Z)
-// ==========================================
-// Cria uma cópia da lista e usa o sort() para organizar de A a Z
-const convidadosAZ = [...convidados].sort();
-
-for (let i = 0; i < convidadosAZ.length; i++) {
-    let li2 = document.createElement('li');
-    li2.textContent = convidadosAZ[i];
-    ulLista2.appendChild(li2);
-}
 
 // ==========================================
 // LÓGICA DOS BOTÕES
