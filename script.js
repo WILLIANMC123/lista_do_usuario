@@ -1,47 +1,67 @@
 // Nossa lista original de convidados
 const convidados = ["Ana", "Carlos", "Amanda", "Pedro", "Alberto", "Bia", "Ricardo"];
 
-// Selecionando os elementos do HTML onde vamos injetar os dados
-const ulMaiusculas = document.getElementById('lista-maiusculas');
-const spanContagemA = document.getElementById('contagem-a');
-const ulMaisCinco = document.getElementById('lista-mais-cinco');
+// ==========================================
+// PARTE 1: GERANDO AS LISTAS COM LOOPS
+// ==========================================
 
-// Variável para armazenar a contagem de nomes com "A"
-let contadorLetraA = 0;
-
-// 1. Loop para nomes em Maiúsculo e contagem da letra "A"
+// Lista 1: Tudo em maiúsculo
+const ulLista1 = document.getElementById('ul-lista1');
 for (let i = 0; i < convidados.length; i++) {
-    let nome = convidados[i];
-    
-    // Converte para maiúsculo e adiciona na tela
-    let nomeMaiusculo = nome.toUpperCase();
     let li = document.createElement('li');
-    li.textContent = nomeMaiusculo;
-    ulMaiusculas.appendChild(li);
-    
-    // Imprime no console (como pedido na instrução de "imprimir")
-    console.log(nomeMaiusculo);
-
-    // 2. Conta quantos começam com a letra "A" (ignorando se é 'A' ou 'a')
-    if (nome.charAt(0).toUpperCase() === 'A') {
-        contadorLetraA++;
-    }
+    li.textContent = convidados[i].toUpperCase();
+    ulLista1.appendChild(li);
 }
 
-// Atualiza o HTML com a contagem final
-spanContagemA.textContent = contadorLetraA;
+// Lista 2: Começam com "A" e contagem
+const ulLista2 = document.getElementById('ul-lista2');
+let contagemA = 0;
+for (let i = 0; i < convidados.length; i++) {
+    if (convidados[i].charAt(0).toUpperCase() === 'A') {
+        contagemA++;
+        let li = document.createElement('li');
+        li.textContent = convidados[i];
+        ulLista2.appendChild(li);
+    }
+}
+// Atualiza o texto com o total
+document.getElementById('total-a').textContent = contagemA;
 
-// 3. Cria uma nova lista apenas com nomes com mais de 5 letras
-const nomesMaisDeCincoLetras = [];
+// Lista 3: Mais de 5 letras
+const ulLista3 = document.getElementById('ul-lista3');
 for (let i = 0; i < convidados.length; i++) {
     if (convidados[i].length > 5) {
-        nomesMaisDeCincoLetras.push(convidados[i]);
+        let li = document.createElement('li');
+        li.textContent = convidados[i];
+        ulLista3.appendChild(li);
     }
 }
 
-// Mostra a lista de nomes com mais de 5 letras no HTML
-nomesMaisDeCincoLetras.forEach(function(nome) {
-    let li = document.createElement('li');
-    li.textContent = nome;
-    ulMaisCinco.appendChild(li);
+
+// ==========================================
+// PARTE 2: LÓGICA DOS BOTÕES
+// ==========================================
+
+// Função que esconde todas as listas e mostra apenas a selecionada
+function mostrarLista(idDaSecao) {
+    // 1. Esconde todas as seções adicionando a classe 'oculta'
+    document.getElementById('secao-lista1').classList.add('oculta');
+    document.getElementById('secao-lista2').classList.add('oculta');
+    document.getElementById('secao-lista3').classList.add('oculta');
+
+    // 2. Mostra a seção desejada removendo a classe 'oculta'
+    document.getElementById(idDaSecao).classList.remove('oculta');
+}
+
+// Configurando os botões para "ouvirem" os cliques e chamarem a função
+document.getElementById('btn-lista1').addEventListener('click', function() {
+    mostrarLista('secao-lista1');
+});
+
+document.getElementById('btn-lista2').addEventListener('click', function() {
+    mostrarLista('secao-lista2');
+});
+
+document.getElementById('btn-lista3').addEventListener('click', function() {
+    mostrarLista('secao-lista3');
 });
