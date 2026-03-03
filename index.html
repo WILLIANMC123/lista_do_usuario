@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listas de Convidados</title>
+    <title>Lista VIP de Convidados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Gerenciador de Convidados</h1>
+        <h1>✨ Lista VIP</h1>
 
         <div class="botoes-container">
-            <button id="btn-lista1" class="btn">Em Maiúsculas</button>
-            <button id="btn-lista2" class="btn">Todos (A a Z)</button>
-            <button id="btn-lista3" class="btn">Com 5 Letras</button>
+            <button id="btn-lista1" class="btn ativo">Maiúsculas</button>
+            <button id="btn-lista2" class="btn">Todos (A-Z)</button>
+            <button id="btn-lista3" class="btn">5 Letras</button>
         </div>
 
         <div id="secao-lista1" class="card">
-            <h2>Convidados em Maiúsculas (A-Z)</h2>
+            <h2>Nomes em Maiúsculas (A-Z)</h2>
             <ul id="ul-lista1"></ul>
         </div>
 
         <div id="secao-lista2" class="card oculta">
             <h2>Todos os Convidados (A-Z)</h2>
-            <p>Total de nomes que começam com "A": <span id="contagem-a" class="destaque"></span></p>
+            <p>Total de nomes com "A": <span id="contagem-a" class="destaque"></span></p>
             <ul id="ul-lista2"></ul>
         </div>
 
         <div id="secao-lista3" class="card oculta">
-            <h2>Convidados com 5 letras (A-Z)</h2>
+            <h2>Nomes com 5 letras (A-Z)</h2>
             <ul id="ul-lista3"></ul>
         </div>
     </div>
