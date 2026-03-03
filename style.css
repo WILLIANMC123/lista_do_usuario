@@ -1,65 +1,76 @@
+/* Reset básico e Fonte */
 * {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Fundo da página com gradiente moderno */
 body {
-    background-color: #e0f2f1; /* Fundo verde-água bem claro */
-    color: #263238; /* Texto em cinza chumbo */
-    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
+    padding: 20px;
+    color: #333;
 }
 
+/* Caixa branca principal */
 .container {
+    background: #ffffff;
     width: 100%;
     max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    padding: 30px;
 }
 
 h1 {
     text-align: center;
-    color: #004d40; /* Verde escuro */
-    margin-bottom: 30px;
+    color: #4a4a4a;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
-/* Área dos Botões */
+/* Estilo dos Botões */
 .botoes-container {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Para adaptar no celular */
 }
 
 .btn {
     flex: 1;
-    padding: 12px;
-    background-color: #00897b; /* Botões em verde vibrante */
-    color: white;
+    min-width: 100px;
+    padding: 12px 15px;
+    background: #f0f0f0;
+    color: #555;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #00695c;
+    background: #e0e0e0;
+    transform: translateY(-2px); /* Efeito de flutuar */
 }
 
+/* Classe para o botão que estiver selecionado */
 .btn.ativo {
-    background-color: #004d40; /* Botão selecionado fica mais escuro */
-    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+    background: #667eea;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Área das listas */
+/* Animação suave para as abas aparecendo */
 .card {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border-top: 5px solid #00897b; /* Linha colorida no topo do card */
+    animation: surgir 0.4s ease-in-out;
 }
 
 .oculta {
@@ -67,29 +78,49 @@ h1 {
 }
 
 h2 {
-    font-size: 1.3rem;
-    color: #00695c;
-    border-bottom: 2px solid #b2dfdb;
-    padding-bottom: 10px;
+    font-size: 1.2rem;
+    color: #667eea;
     margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
 }
 
+/* Estilo das Listas */
 ul {
-    list-style-type: square;
-    padding-left: 20px;
+    list-style: none; /* Tira as bolinhas feias do HTML padrão */
 }
 
 li {
-    margin-bottom: 8px;
-    font-size: 1.05rem;
+    background: #f9f9ff;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    font-weight: 400;
+    transition: transform 0.2s, background 0.2s;
 }
 
+/* Efeito ao passar o mouse em cima do nome */
+li:hover {
+    transform: translateX(8px);
+    background: #f0f0ff;
+}
+
+/* Destaque para o número de contagem */
 p {
     margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #666;
 }
 
 .destaque {
-    font-weight: bold;
-    color: #d32f2f; /* Vermelho para destacar a contagem */
-    font-size: 1.2rem;
+    color: #ff6b6b;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Configuração da animação */
+@keyframes surgir {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
