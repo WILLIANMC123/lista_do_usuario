@@ -6,9 +6,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Fundo da página com gradiente moderno */
+/* Fundo Animado e Vibrante */
 body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradienteAnimado 15s ease infinite;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -17,110 +19,56 @@ body {
     color: #333;
 }
 
-/* Caixa branca principal */
+@keyframes gradienteAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Caixa principal com efeito de Vidro (Glassmorphism) */
 .container {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     width: 100%;
     max-width: 600px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 h1 {
     text-align: center;
-    color: #4a4a4a;
-    margin-bottom: 25px;
-    font-weight: 600;
+    background: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 2.2rem;
 }
 
 /* Estilo dos Botões */
 .botoes-container {
     display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-    flex-wrap: wrap; /* Para adaptar no celular */
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .btn {
     flex: 1;
-    min-width: 100px;
-    padding: 12px 15px;
-    background: #f0f0f0;
+    min-width: 110px;
+    padding: 14px 10px;
+    background: #ffffff;
     color: #555;
-    border: none;
-    border-radius: 10px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .btn:hover {
-    background: #e0e0e0;
-    transform: translateY(-2px); /* Efeito de flutuar */
-}
-
-/* Classe para o botão que estiver selecionado */
-.btn.ativo {
-    background: #667eea;
-    color: #ffffff;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-/* Animação suave para as abas aparecendo */
-.card {
-    animation: surgir 0.4s ease-in-out;
-}
-
-.oculta {
-    display: none;
-}
-
-h2 {
-    font-size: 1.2rem;
-    color: #667eea;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-}
-
-/* Estilo das Listas */
-ul {
-    list-style: none; /* Tira as bolinhas feias do HTML padrão */
-}
-
-li {
-    background: #f9f9ff;
-    margin-bottom: 10px;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border-left: 4px solid #667eea;
-    font-weight: 400;
-    transition: transform 0.2s, background 0.2s;
-}
-
-/* Efeito ao passar o mouse em cima do nome */
-li:hover {
-    transform: translateX(8px);
-    background: #f0f0ff;
-}
-
-/* Destaque para o número de contagem */
-p {
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    color: #666;
-}
-
-.destaque {
-    color: #ff6b6b;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-/* Configuração da animação */
-@keyframes surgir {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+    transform: translateY(-4px);
