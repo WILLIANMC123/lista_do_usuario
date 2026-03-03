@@ -19,6 +19,7 @@ h1 {
     color: #2c3e50;
 }
 
+/* Área dos Botões */
 .botoes-container {
     display: flex;
     justify-content: space-between;
@@ -43,6 +44,7 @@ h1 {
     background-color: #2980b9;
 }
 
+/* Área das Listas */
 .card {
     background: #ffffff;
     padding: 20px;
@@ -50,6 +52,7 @@ h1 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+/* Classe para esconder elementos */
 .oculta {
     display: none;
 }
