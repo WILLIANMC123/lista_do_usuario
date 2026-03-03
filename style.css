@@ -19,7 +19,6 @@ h1 {
     color: #2c3e50;
 }
 
-/* Estilos dos Botões */
 .botoes-container {
     display: flex;
     justify-content: space-between;
@@ -44,7 +43,6 @@ h1 {
     background-color: #2980b9;
 }
 
-/* Estilos dos Cards (onde ficam as listas) */
 .card {
     background: #ffffff;
     padding: 20px;
@@ -52,7 +50,6 @@ h1 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Classe crucial para esconder as listas */
 .oculta {
     display: none;
 }
@@ -71,9 +68,4 @@ ul {
 
 li {
     margin-bottom: 5px;
-}
-
-.destaque {
-    font-weight: bold;
-    color: #e74c3c;
 }
