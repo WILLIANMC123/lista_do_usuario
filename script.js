@@ -1,7 +1,6 @@
-// A nossa lista principal, organizada de A a Z
+// Nossa lista organizada de A a Z
 const convidados = ["Ricardo", "Ana", "Carlos", "Amanda", "Pedro", "Aline", "Bia", "Lucas", "Tiago"].sort();
 
-// Capturando os elementos HTML
 const ulLista1 = document.getElementById('ul-lista1');
 const ulLista2 = document.getElementById('ul-lista2');
 const ulLista3 = document.getElementById('ul-lista3');
@@ -9,28 +8,26 @@ const spanContagem = document.getElementById('contagem-a');
 
 let contadorA = 0;
 
-// ==========================================
-// PREENCHENDO AS LISTAS COM O LOOP
-// ==========================================
+// Preenchendo as listas
 for (let i = 0; i < convidados.length; i++) {
     let nome = convidados[i];
 
-    // Regra 1: Maiúsculas
+    // Maiúsculas
     let li1 = document.createElement('li');
     li1.textContent = nome.toUpperCase();
     ulLista1.appendChild(li1);
 
-    // Regra 2: Lista Normal
+    // Normal (Lista Completa)
     let li2 = document.createElement('li');
     li2.textContent = nome;
     ulLista2.appendChild(li2);
 
-    // Contagem da letra A
+    // Conta se começa com "A"
     if (nome.charAt(0).toUpperCase() === 'A') {
         contadorA++; 
     }
 
-    // Regra 3: Exatamente 5 letras
+    // Apenas 5 letras
     if (nome.length === 5) {
         let li3 = document.createElement('li');
         li3.textContent = nome;
@@ -38,29 +35,29 @@ for (let i = 0; i < convidados.length; i++) {
     }
 }
 
-// Atualiza o total de nomes com A no HTML
+// Atualiza a contagem
 spanContagem.textContent = contadorA;
 
 // ==========================================
-// FUNÇÃO PARA TROCAR AS ABAS E OS BOTÕES
+// FUNÇÃO PARA TROCAR ABAS E CORES DOS BOTÕES
 // ==========================================
 function exibirSecao(idSecao, idBotaoClicado) {
-    // Esconde tudo
+    // 1. Esconde todas as listas
     document.getElementById('secao-lista1').classList.add('oculta');
     document.getElementById('secao-lista2').classList.add('oculta');
     document.getElementById('secao-lista3').classList.add('oculta');
     
-    // Tira o 'ativo' de todos os botões
+    // 2. Tira a cor de botão "ativo" de todos os botões
     document.getElementById('btn-lista1').classList.remove('ativo');
     document.getElementById('btn-lista2').classList.remove('ativo');
     document.getElementById('btn-lista3').classList.remove('ativo');
 
-    // Mostra a seção certa e marca o botão clicado
+    // 3. Mostra a lista certa e pinta o botão clicado
     document.getElementById(idSecao).classList.remove('oculta');
     document.getElementById(idBotaoClicado).classList.add('ativo');
 }
 
-// Eventos de clique
+// Conectando os botões à nova função
 document.getElementById('btn-lista1').addEventListener('click', function() {
     exibirSecao('secao-lista1', 'btn-lista1');
 });
