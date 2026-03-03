@@ -1,46 +1,43 @@
-// Criando três listas simples de convidados
-const grupo1 = ["Ana", "Carlos", "Amanda"];
-const grupo2 = ["Pedro", "Alberto", "Bia"];
-const grupo3 = ["Ricardo", "Fernanda", "João"];
+// Três listas simples de convidados
+const convidadosLista1 = ["Ana", "Carlos", "Amanda"];
+const convidadosLista2 = ["Pedro", "Alberto", "Bia"];
+const convidadosLista3 = ["Ricardo", "Fernanda", "João"];
 
-// Função genérica para preencher qualquer lista no HTML
-function preencherLista(arrayDeNomes, idDoElementoUl) {
-    const ul = document.getElementById(idDoElementoUl);
-    for (let i = 0; i < arrayDeNomes.length; i++) {
+// Função para popular as listas no HTML
+function popularLista(array, idUl) {
+    const ul = document.getElementById(idUl);
+    for (let i = 0; i < array.length; i++) {
         let li = document.createElement('li');
-        li.textContent = arrayDeNomes[i];
+        li.textContent = array[i]; // Sem formatação extra
         ul.appendChild(li);
     }
 }
 
-// Preenchendo as três listas usando a função acima
-preencherLista(grupo1, 'ul-lista1');
-preencherLista(grupo2, 'ul-lista2');
-preencherLista(grupo3, 'ul-lista3');
+// Populando as 3 listas
+popularLista(convidadosLista1, 'ul-lista1');
+popularLista(convidadosLista2, 'ul-lista2');
+popularLista(convidadosLista3, 'ul-lista3');
 
-// ==========================================
-// LÓGICA DOS BOTÕES PARA MOSTRAR/ESCONDER
-// ==========================================
-
-function mostrarLista(idDaSecao) {
-    // Esconde todas
+// Função para gerenciar a exibição
+function exibirSecao(idSecao) {
+    // Esconde todas as seções
     document.getElementById('secao-lista1').classList.add('oculta');
     document.getElementById('secao-lista2').classList.add('oculta');
     document.getElementById('secao-lista3').classList.add('oculta');
 
-    // Mostra apenas a que foi clicada
-    document.getElementById(idDaSecao).classList.remove('oculta');
+    // Remove a classe 'oculta' apenas da seção clicada
+    document.getElementById(idSecao).classList.remove('oculta');
 }
 
-// Conectando os botões à função
+// Adicionando os eventos de clique aos botões
 document.getElementById('btn-lista1').addEventListener('click', function() {
-    mostrarLista('secao-lista1');
+    exibirSecao('secao-lista1');
 });
 
 document.getElementById('btn-lista2').addEventListener('click', function() {
-    mostrarLista('secao-lista2');
+    exibirSecao('secao-lista2');
 });
 
 document.getElementById('btn-lista3').addEventListener('click', function() {
-    mostrarLista('secao-lista3');
+    exibirSecao('secao-lista3');
 });
